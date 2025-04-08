@@ -5,9 +5,7 @@ public class AdditionMatrix {
         Scanner scanner = new Scanner(System.in);
 
         // 輸入 W 和 H
-        System.out.print("請輸入正整數 W: ");
         int w = scanner.nextInt();
-        System.out.print("請輸入正整數 H: ");
         int h = scanner.nextInt();
 
         // 顯示 WxH 的加法矩陣 (W 和 H 從 0 開始)
