@@ -5,17 +5,22 @@ public class PalindromeChecker {
         Scanner scanner = new Scanner(System.in);
 
         // 提示用戶輸入字串
-        System.out.print("請輸入字串: ");
         String input = scanner.nextLine(); // 接收輸入的字串
 
-        // 去除字串中可能的空白，並將字串轉為小寫（忽略大小寫）
-        String processedString = input.replaceAll("\\s+", "").toLowerCase();
-
-        // 判斷是否為回文
+        // 判斷是否為回文，忽略空白並忽略大小寫
         boolean isPalindrome = true;
-        int length = processedString.length();
+        int length = input.length();
         for (int i = 0; i < length / 2; i++) {
-            if (processedString.charAt(i) != processedString.charAt(length - 1 - i)) {
+            // 只比較非空白字符，並將字符轉為小寫進行比較
+            if (Character.isWhitespace(input.charAt(i))) {
+                continue;  // 跳過空白字符
+            }
+            if (Character.isWhitespace(input.charAt(length - 1 - i))) {
+                continue;  // 跳過空白字符
+            }
+
+            // 比較字符是否相等（忽略大小寫）
+            if (Character.toLowerCase(input.charAt(i)) != Character.toLowerCase(input.charAt(length - 1 - i))) {
                 isPalindrome = false;
                 break;
             }
