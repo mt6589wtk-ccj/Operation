@@ -9,19 +9,13 @@ public class OddEvenSum {
         int evenSum = 0; // 儲存偶數位的總和
 
         System.out.println("請輸入10個整數：");
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < 10; i++) {
             numbers[i] = scanner.nextInt();
-            // 判斷數字所在的位置（0為第一位，1為第二位...）
-            if ((i + 1) % 2 == 0) { // 偶數位
-                evenSum += numbers[i];
-            } else { // 奇數位
-                oddSum += numbers[i];
-            }
         }
-
+        oddSum=numbers[0]+numbers[2]+numbers[4]+numbers[6]+numbers[8];
+        evenSum=numbers[1]+numbers[3]+numbers[5]+numbers[7]+numbers[9];
         // 輸出兩組數字的總和
-        System.out.println("奇數位數字的總和為：" + oddSum);
-        System.out.println("偶數位數字的總和為：" + evenSum);
+        System.out.println(oddSum+","+ evenSum);
 
         scanner.close();
     }
