@@ -5,13 +5,12 @@ public class GradeEvaluation {
         Scanner scanner = new Scanner(System.in);
 
         // 提示使用者輸入分數
-        System.out.print("請輸入分數（0到100）: ");
         int score = scanner.nextInt(); // 接收輸入的分數
 
         // 條件判斷與輸出結果
         if (score >= 90) {
-            System.out.println("excellent");
             System.out.println("pass");
+            System.out.println("excellent");
         } else if (score >= 60) {
             System.out.println("pass");
         } else if (score >= 50) {

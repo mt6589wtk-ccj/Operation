@@ -2,80 +2,61 @@ import java.util.Scanner;
 
 public class ZodiacSign {
     public static void main(String[] args) {
+        // 創建Scanner對象來讀取用戶輸入
         Scanner scanner = new Scanner(System.in);
 
-        int month = 0;
-        int day = 0;
+        // 提示用戶輸入日期
+        int month = scanner.nextInt();
+        int day = scanner.nextInt();
 
-        // 確保月份輸入正確
-        while (true) {
-            System.out.println("請輸入月份 (1-12)：");
-            month = scanner.nextInt();
-            if (month >= 1 && month <= 12) {
-                break; // 跳出月份循環
-            } else {
-                System.out.println("輸入的月份不在範圍內，請重新輸入！");
-            }
-        }
-
-        // 確保日期輸入正確
-        while (true) {
-            System.out.println("請輸入日期 (1-31)：");
-            day = scanner.nextInt();
-            if (isValidDay(month, day)) {
-                break; // 跳出日期循環
-            } else {
-                System.out.println("輸入的日期不在該月份的有效範圍內，請重新輸入！");
-            }
-        }
-
-        String zodiac = "";
-
-        // 判斷星座
-        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
-            zodiac = "水瓶座";
-        } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
-            zodiac = "雙魚座";
-        } else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
-            zodiac = "牡羊座";
-        } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
-            zodiac = "金牛座";
-        } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
-            zodiac = "雙子座";
-        } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
-            zodiac = "巨蟹座";
-        } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
-            zodiac = "獅子座";
-        } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
-            zodiac = "處女座";
-        } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
-            zodiac = "天秤座";
-        } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
-            zodiac = "天蠍座";
-        } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
-            zodiac = "射手座";
-        } else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
-            zodiac = "摩羯座";
-        }
+        // 根據輸入的月份和日期判斷星座
+        String zodiac = getZodiacSign(month, day);
 
         // 輸出結果
-        System.out.println("對應的星座是：" + zodiac);
+        System.out.println(zodiac);
     }
 
-    // 判斷日期是否有效
-    public static boolean isValidDay(int month, int day) {
-        int maxDay = 0;
+    // 方法：根據月份和日期返回星座
+    public static String getZodiacSign(int month, int day) {
         switch (month) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-                maxDay = 31;
-                break;
-            case 4: case 6: case 9: case 11:
-                maxDay = 30;
-                break;
-            case 2:
-                maxDay = 29; // 假設當年為閏年
-                break;
+            case 1:  // January
+                if (day >= 20) return "Aquarius";
+                else return "Capricorn";
+            case 2:  // February
+                if (day >= 19) return "Pisces";
+                else return "Aquarius";
+            case 3:  // March
+                if (day >= 21) return "Aries";
+                else return "Pisces";
+            case 4:  // April
+                if (day >= 20) return "Taurus";
+                else return "Aries";
+            case 5:  // May
+                if (day >= 21) return "Gemini";
+                else return "Taurus";
+            case 6:  // June
+                if (day >= 21) return "Cancer";
+                else return "Gemini";
+            case 7:  // July
+                if (day >= 23) return "Leo";
+                else return "Cancer";
+            case 8:  // August
+                if (day >= 23) return "Virgo";
+                else return "Leo";
+            case 9:  // September
+                if (day >= 23) return "Libra";
+                else return "Virgo";
+            case 10: // October
+                if (day >= 23) return "Scorpio";
+                else return "Libra";
+            case 11: // November
+                if (day >= 22) return "Sagittarius";
+                else return "Scorpio";
+            case 12: // December
+                if (day >= 22) return "Capricorn";
+                else return "Sagittarius";
+            default:
+                return "Invalid date";
         }
-        return day >= 1 && day <= maxDay;
     }
 }

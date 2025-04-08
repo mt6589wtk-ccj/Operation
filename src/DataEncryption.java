@@ -5,7 +5,6 @@ public class DataEncryption {
         Scanner scanner = new Scanner(System.in);
 
         // 提示使用者輸入四位數字
-        System.out.print("請輸入四位數: ");
         int input = scanner.nextInt(); // 接收四位數字輸入
 
         // 將四位數分解成陣列
@@ -31,7 +30,6 @@ public class DataEncryption {
         data[3] = temp;
 
         // 輸出加密後的數據
-        System.out.print("加密後的數據: ");
         for (int i = 0; i < 4; i++) {
             System.out.print(data[i]);
         }

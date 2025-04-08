@@ -5,12 +5,11 @@ public class ChristmasTree {
         Scanner scanner = new Scanner(System.in);
 
         // 輸入 n
-        System.out.print("請輸入聖誕樹的高度 n (必須大於 3): ");
         int n = scanner.nextInt();
 
         // 確保 n > 3
         if (n <= 3) {
-            System.out.println("聖誕樹的高度必須大於 3！");
+
             return;
         }
 
